@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link href="https://fonts.googleapis.com/css?family=Diplomata+SC" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+    <body ng-controller="mainController">
+        <div class="box">
+            <input ng-model="newQuote" placeholder="quote"/>
+            <button ng-click="addQuote()">Add New Quote</button>
+            <input ng-model="author" placeholder="by author"/>
+            <button ng-click="removeQuote()">Remove Last Quote</button>
+        </div>
+        <div class="box1">
+            <h3>Filter by Author</h3>
+            <input ng-model="quoteFilter.author"/>
+            <div ng-repeat="x in dude | filter: quoteFilter ">
+                <br/>
+                {{x.text}} by {{x.author}}
+                <br/>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+        <script src="app.js"></script>
+        <script src="controller.js"></script>
+        <script src="mainService.js"></script>
+
+    </body>
+</html>
